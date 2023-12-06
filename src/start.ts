@@ -8,7 +8,7 @@ import {IObg} from './types';
 
 export async function start(сombinations: IObg<string[]>, moves: string[]) {
   const compMove = randomNumFromInterval(0, moves.length - 1);
-  const secret = randomBytes(256);
+  const secret = randomBytes(130).toString('hex');
   const hmac: string = jwt.sign(moves[compMove], secret);
   const decoded = jwt.decode(hmac);
 
